@@ -22,15 +22,15 @@ export class TramosService {
     return this.http.get<any>(this.URL_BASE + 'tramos');
   }
 
-  crearHistorias(data: any) {
-    return this.http.post(this.URL_BASE + 'tramos/historias', data);
+  historicoTramo(data: any) {
+    return this.http.post(this.URL_BASE + 'tramo/historias', data);
   }
 
-  historicoConsumos(data: any) {
-    return this.http.post(this.URL_BASE + 'tramos/historico-consumos', data);
+  historicoCliente(data: any) {
+    return this.http.post(this.URL_BASE + 'tramo/historico-consumos', data);
   }
 
-  topPeores(data: any) {
-    return this.http.post(this.URL_BASE + 'tramos/top-peores-tramos-cliente', data);
+  peoresTramos(data: any) {
+    return this.http.post(this.URL_BASE + 'tramo/top-peores-tramos-cliente', data);
   }
 }

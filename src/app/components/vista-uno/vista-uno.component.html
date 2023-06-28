@@ -1,1 +1,22 @@
-<p>vista-uno works!</p>
+<h1>Historia de consumo por tramo</h1>
+
+<form>
+  <label for="fechaInicial">Fecha inicial:</label>
+  <input type="date" id="fechaInicial" name="fechaInicial" [(ngModel)]="fechaInicial">
+
+  <label for="fechaFinal">Fecha final:</label>
+  <input type="date" id="fechaFinal" name="fechaFinal" [(ngModel)]="fechaFinal">
+
+  <button type="button" (click)="obtenerTramos()">Obtener historia</button>
+</form>
+
+<div *ngIf="historia && historia.length > 0">
+  <div *ngFor="let tramo of historia" class="tramo">
+    <h2>Tramo: {{ tramo.linea }}</h2>
+    <p>Consumo: {{ tramo.consumo }}</p>
+    <p>Pérdidas: {{ tramo.perdidas }}</p>
+    <p>Costo: {{ tramo.costo }}</p>
+  </div>
+</div>
+
+<p *ngIf="historia && historia.length === 0">No se encontraron resultados de historia.</p>
