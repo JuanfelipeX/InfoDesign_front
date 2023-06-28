@@ -8,16 +8,20 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { ErrorNoEncontradoComponent } from './components/error-no-encontrado/error-no-encontrado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TercerosComponent } from './components/terceros/terceros.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { VistaUnoComponent } from './components/vista-uno/vista-uno.component';
+import { VistaDosComponent } from './components/vista-dos/vista-dos.component';
+import { VistaTresComponent } from './components/vista-tres/vista-tres.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IniciarSesionComponent,
     ErrorNoEncontradoComponent,
-    TercerosComponent,
     UsuariosComponent,
+    VistaUnoComponent,
+    VistaDosComponent,
+    VistaTresComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ export class IniciarSesionComponent implements OnInit {
   formulario: any = {};
 
   constructor(
-    private iniciarSesionService: IniciarSesionService,
+    // private iniciarSesionService: IniciarSesionService,
     private router: Router
   ) { }
 
@@ -22,16 +22,16 @@ export class IniciarSesionComponent implements OnInit {
   *                    HACER LOGIN               *
   ************************************************
   */
-  login() {
-    this.iniciarSesionService.login(this.formulario).subscribe(
-      (response) => {
-        // Lógica para manejar la respuesta exitosa
-        console.log(response);
-      },
-      (error) => {
-        // Lógica para manejar el error
-        console.error(error);
-      }
-    );
-  }
+  // login() {
+  //   this.iniciarSesionService.login(this.formulario).subscribe(
+  //     (response) => {
+  //       // Lógica para manejar la respuesta exitosa
+  //       console.log(response);
+  //     },
+  //     (error) => {
+  //       // Lógica para manejar el error
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 }
