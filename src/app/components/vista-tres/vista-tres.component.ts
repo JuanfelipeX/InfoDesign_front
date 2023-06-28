@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TramosService } from 'src/app/services/tramos/tramos.service';
 
 @Component({
   selector: 'app-vista-tres',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaTresComponent implements OnInit {
 
-  constructor() { }
+  fechaInicial!: string;
+  fechaFinal!: string;
+  peoresTramosCliente!: any[];
+
+  constructor(
+    private tramoService: TramosService,
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
 
+  /*
+************************************************
+*             Historico Consumos               *
+************************************************
+*/
+  obtenerTramos() {
+    if (this.fechaInicial && this.fechaFinal) {
+      this.tramoService.peoresTramos({ fechaInicial: this.fechaInicial, fechaFinal: this.fechaFinal }).subscribe(
+        (data: any) => {
+          this.peoresTramosCliente = data;
+        },
+        (error: any) => {
+          console.error('Error al obtener la historia:', error);
+          this.peoresTramosCliente = [];
+        }
+      );
+    }
+  }
 }

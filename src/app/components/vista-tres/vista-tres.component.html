@@ -1,1 +1,31 @@
-<p>vista-tres works!</p>
+<div>
+    <h2>Historial de Consumos por Cliente</h2>
+    <div>
+        <label for="fechaInicial">Fecha inicial:</label>
+        <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial" required>
+    </div>
+    <div>
+        <label for="fechaFinal">Fecha final:</label>
+        <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal" required>
+    </div>
+    <button (click)="obtenerTramos()">Obtener Historial</button>
+    <div *ngIf="peoresTramosCliente">
+        <h3>Tramos/Cliente con mayores pérdidas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tramo</th>
+                    <th>Cliente</th>
+                    <th>Pérdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tramoCliente of peoresTramosCliente">
+                    <td>{{ tramoCliente.tramo }}</td>
+                    <td>{{ tramoCliente.cliente }}</td>
+                    <td>{{ tramoCliente.perdidas }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
