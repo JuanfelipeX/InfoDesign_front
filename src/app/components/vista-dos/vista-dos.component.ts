@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TramosService } from 'src/app/services/tramos/tramos.service';
 
 @Component({
   selector: 'app-vista-dos',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaDosComponent implements OnInit {
 
-  constructor() { }
+  fechaInicial!: string;
+  fechaFinal!: string;
+  historiaConsumosCliente!: any[];
+
+  constructor(
+    private tramoService: TramosService,
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit(): void {
+  }
+
+  /*
+************************************************
+*             Historico Consumos               *
+************************************************
+*/
+  obtenerTramos() {
+    if (this.fechaInicial && this.fechaFinal) {
+      this.tramoService.historicoCliente({ fechaInicial: this.fechaInicial, fechaFinal: this.fechaFinal }).subscribe(
+        (data: any) => {
+          this.historiaConsumosCliente = data;
+        },
+        (error: any) => {
+          console.error('Error al obtener la historia:', error);
+          this.historiaConsumosCliente = [];
+        }
+      );
+    }
   }
 
 }
