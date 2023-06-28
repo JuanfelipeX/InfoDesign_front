@@ -21,9 +21,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let tramoCliente of peoresTramosCliente">
-                    <td>{{ tramoCliente.tramo }}</td>
-                    <td>{{ tramoCliente.cliente }}</td>
-                    <td>{{ tramoCliente.perdidas }}</td>
+                    <td>{{ tramoCliente.linea }}</td>
+                    <td>{{ tramoCliente.fecha }}</td>
+                    <td>{{ tramoCliente.perdidasResidencial + tramoCliente.perdidasComercial +
+                        tramoCliente.perdidasIndustrial }}</td>
                 </tr>
             </tbody>
         </table>
