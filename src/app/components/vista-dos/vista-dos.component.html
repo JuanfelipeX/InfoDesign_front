@@ -1,30 +1,29 @@
 <div>
-    <h2>Histórico Consumos por Cliente</h2>
-  
-    <div>
-      <label for="fechaInicial">Fecha inicial:</label>
-      <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial">
-    </div>
-  
-    <div>
-      <label for="fechaFinal">Fecha final:</label>
-      <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal">
-    </div>
-  
-    <button (click)="obtenerTramos()">Obtener Historial</button>
-  
-    <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length > 0">
-      <h3>Historia de Consumos por Cliente</h3>
-      <div *ngFor="let consumo of historiaConsumosCliente">
-        <h4>Tramo: {{ consumo.tramo }}</h4>
-        <p>Consumo: {{ consumo.consumo }}</p>
-        <p>Pérdidas: {{ consumo.perdidas }}</p>
-        <p>Costo: {{ consumo.costo }}</p>
-      </div>
-    </div>
-  
-    <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length === 0">
-      <p>No se encontraron registros para el período seleccionado.</p>
+  <h2>Histórico Consumos por Cliente</h2>
+
+  <div>
+    <label for="fechaInicial">Fecha inicial:</label>
+    <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial">
+  </div>
+
+  <div>
+    <label for="fechaFinal">Fecha final:</label>
+    <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal">
+  </div>
+
+  <button (click)="obtenerHistoricoConsumos()">Obtener Historial</button>
+
+  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length > 0">
+    <h3>Historia de Consumos por Cliente</h3>
+    <div *ngFor="let consumo of historiaConsumosCliente">
+      <h4>Tramo: {{ consumo.tramo }}</h4>
+      <p>Consumo: {{ consumo.consumo }}</p>
+      <p>Pérdidas: {{ consumo.perdidas }}</p>
+      <p>Costo: {{ consumo.costo }}</p>
     </div>
   </div>
-  
+
+  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length === 0">
+    <p>No se encontraron registros para el período seleccionado.</p>
+  </div>
+</div>
