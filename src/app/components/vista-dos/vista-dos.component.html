@@ -1,29 +1,33 @@
-<div>
-  <h2>Histórico Consumos por Cliente</h2>
+<div class="p-4 container">
+  <h2 class="mt-3 text-center">Histórico Consumos por Cliente</h2>
 
-  <div>
+  <div class="form-group mt-2 pb-4">
     <label for="fechaInicial">Fecha inicial:</label>
-    <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial">
+    <input type="date" id="fechaInicial" class="form-control" [(ngModel)]="fechaInicial">
   </div>
 
-  <div>
+  <div class="form-group pb-4">
     <label for="fechaFinal">Fecha final:</label>
-    <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal">
+    <input type="date" id="fechaFinal" class="form-control" [(ngModel)]="fechaFinal">
   </div>
 
-  <button (click)="obtenerHistoricoConsumos()">Obtener Historial</button>
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="obtenerHistoricoConsumos()">Obtener Historial</button>
+  </div>
 
-  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length > 0">
-    <h3>Historia de Consumos por Cliente</h3>
-    <div *ngFor="let consumo of historiaConsumosCliente">
-      <h4>Tramo: {{ consumo.tramo }}</h4>
-      <p>Consumo: {{ consumo.consumo }}</p>
-      <p>Pérdidas: {{ consumo.perdidas }}</p>
-      <p>Costo: {{ consumo.costo }}</p>
+  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length > 0" class="mt-4">
+    <h3 class="m-2 mb-4 text-center">Historia de Consumos por Cliente</h3>
+    <div *ngFor="let consumo of historiaConsumosCliente" class="card mb-3">
+      <div class="card-body">
+        <h4 class="card-title">Tramo: {{ consumo.tramo }}</h4>
+        <p class="card-text">Consumo: {{ consumo.consumo }}</p>
+        <p class="card-text">Pérdidas: {{ consumo.perdidas }}</p>
+        <p class="card-text">Costo: {{ consumo.costo }}</p>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length === 0">
+  <div *ngIf="historiaConsumosCliente && historiaConsumosCliente.length === 0" class="mt-4">
     <p>No se encontraron registros para el período seleccionado.</p>
   </div>
 </div>
