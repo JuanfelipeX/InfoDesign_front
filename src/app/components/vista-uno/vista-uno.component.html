@@ -1,22 +1,33 @@
-<h1>Historia de consumo por tramo</h1>
+<div class="p-4 container">
+  <h1 class="text-center pb-4">Historia de consumo por tramo</h1>
 
-<form>
-  <label for="fechaInicial">Fecha inicial:</label>
-  <input type="date" id="fechaInicial" name="fechaInicial" [(ngModel)]="fechaInicial">
+  <form class="mb-3">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="fechaInicial" class="form-label">Fecha inicial:</label>
+        <input type="date" id="fechaInicial" name="fechaInicial" [(ngModel)]="fechaInicial" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="fechaFinal" class="form-label">Fecha final:</label>
+        <input type="date" id="fechaFinal" name="fechaFinal" [(ngModel)]="fechaFinal" class="form-control">
+      </div>
+    </div>
 
-  <label for="fechaFinal">Fecha final:</label>
-  <input type="date" id="fechaFinal" name="fechaFinal" [(ngModel)]="fechaFinal">
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary mt-3" (click)="obtenerTramos()">Obtener historia</button>
+    </div>
+  </form>
 
-  <button type="button" (click)="obtenerTramos()">Obtener historia</button>
-</form>
-
-<div *ngIf="historia && historia.length > 0">
-  <div *ngFor="let tramo of historia" class="tramo">
-    <h2>Tramo: {{ tramo.linea }}</h2>
-    <p>Consumo: {{ tramo.consumo }}</p>
-    <p>Pérdidas: {{ tramo.perdidas }}</p>
-    <p>Costo: {{ tramo.costo }}</p>
+  <div *ngIf="historia && historia.length > 0">
+    <div *ngFor="let tramo of historia" class="tramo card mb-3">
+      <div class="card-body">
+        <h2 class="card-title text-primary">Tramo: {{ tramo.linea }}</h2>
+        <p class="card-text">Consumo: {{ tramo.consumo }}</p>
+        <p class="card-text">Pérdidas: {{ tramo.perdidas }}</p>
+        <p class="card-text">Costo: {{ tramo.costo }}</p>
+      </div>
+    </div>
   </div>
-</div>
 
-<p *ngIf="historia && historia.length === 0">No se encontraron resultados de historia.</p>
+  <p *ngIf="historia && historia.length === 0" class="mt-3">No se encontraron resultados de historia.</p>
+</div>
